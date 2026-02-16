@@ -35,7 +35,7 @@ export default siteConfig({
   isRedisEnabled: false,
 
   // マップ設定 (falseでOK)
-  mapIsEnabled: false,
+
 
   // コレクション画像の表示 (nullでOK)
   pageUrlOverrides: null,
