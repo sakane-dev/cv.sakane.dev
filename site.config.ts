@@ -1,7 +1,7 @@
 import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
-  // 必須設定
+  // 必須設定（IDは確認済み）
   rootNotionPageId: '3099ee114e2c80c884d8e6f3a019f0fb',
 
   // サイト情報
@@ -10,14 +10,11 @@ export default siteConfig({
   author: 'Yasuyuki Sakane',
   description: 'Curriculum Vitae of Yasuyuki Sakane',
 
-  // ソーシャル（不要ならコメントアウトのままでOK）
-  // twitter: 'sakane_dev',
-  // github: 'sakane-dev',
-  // linkedin: 'yasuyukisakane',
+  // ソーシャル設定（必要に応じてIDを入れてください）
+  twitter: 'sakane_dev',
+  github: 'sakane-dev',
+  linkedin: 'yasuyukisakane',
 
-  // 画像プレビュー機能（これは残しても安全です）
+  // プレビュー画像機能のみ有効化
   isPreviewImageSupportEnabled: true,
-
-  // 以下の古い設定項目はすべて削除しました
-  // mapIsEnabled, isRedisEnabled, pageUrlOverrides など
 })
