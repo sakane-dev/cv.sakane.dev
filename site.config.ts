@@ -31,12 +31,6 @@ export default siteConfig({
   // 画像のCDN活用 (true推奨)
   isPreviewImageSupportEnabled: true,
 
-  // 開発モードでのRedis使用 (false推奨)
-  isRedisEnabled: false,
-
-  // マップ設定 (falseでOK)
-
-
   // コレクション画像の表示 (nullでOK)
   pageUrlOverrides: null,
 })
