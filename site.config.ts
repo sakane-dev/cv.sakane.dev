@@ -13,7 +13,7 @@ export default siteConfig({
   // ソーシャル設定（必要に応じてIDを入れてください）
   twitter: 'sakane_dev',
   github: 'sakane-dev',
-  linkedin: 'yasuyukisakane',
+  linkedin: 'yasuyukis',
 
   // プレビュー画像機能のみ有効化
   isPreviewImageSupportEnabled: true,
