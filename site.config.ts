@@ -1,65 +1,42 @@
 import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
-  // the site's root Notion page (required)
-  rootNotionPageId: '7875426197cf461698809def95960ebf',
+  // 【最重要】NotionのページID (ハイフンなし32桁)
+  rootNotionPageId: '3099ee114e2c80c884d8e6f3a019f0fb',
 
-  // if you want to restrict pages to a single notion workspace (optional)
-  // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: null,
+  // サイトの基本情報
+  name: 'Yasuyuki Sakane CV',
+  domain: 'cv.sakane.dev',
+  author: 'Yasuyuki Sakane',
 
-  // basic site info (required)
-  name: 'Next.js Notion Starter Kit',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
-  author: 'Travis Fischer',
+  // SEO用説明文
+  description: 'Curriculum Vitae of Yasuyuki Sakane - Architecting Structural Intelligence.',
 
-  // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  // --- 以下の設定はデフォルトのままでOKですが、必要に応じて変更してください ---
 
-  // social usernames (optional)
-  twitter: 'transitive_bs',
-  github: 'transitive-bullshit',
-  linkedin: 'fisch2',
-  // mastodon: '#', // optional mastodon profile URL, provides link verification
-  // newsletter: '#', // optional newsletter URL
-  // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
+  // Twitterアカウント (任意)
+  // twitter: 'sakane_dev', // アカウントがない場合は行ごと削除またはコメントアウト
 
-  // default notion icon and cover images for site-wide consistency (optional)
-  // page-specific values will override these site-wide defaults
+  // GitHubアカウント (任意)
+  github: 'sakane-dev',
+
+  // LinkedInアカウント (任意)
+  linkedin: 'yasuyukis',
+
+  // ページのプレビュー画像 (Notionのカバー画像が使われるのでそのままでOK)
   defaultPageIcon: null,
   defaultPageCover: null,
   defaultPageCoverPosition: 0.5,
 
-  // whether or not to enable support for LQIP preview images (optional)
+  // 画像のCDN活用 (true推奨)
   isPreviewImageSupportEnabled: true,
 
-  // whether or not redis is enabled for caching generated preview images (optional)
-  // NOTE: if you enable redis, you need to set the `REDIS_HOST` and `REDIS_PASSWORD`
-  // environment variables. see the readme for more info
+  // 開発モードでのRedis使用 (false推奨)
   isRedisEnabled: false,
 
-  // map of notion page IDs to URL paths (optional)
-  // any pages defined here will override their default URL paths
-  // example:
-  //
-  // pageUrlOverrides: {
-  //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
-  //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
-  // }
-  pageUrlOverrides: null,
+  // マップ設定 (falseでOK)
+  mapIsEnabled: false,
 
-  // whether to use the default notion navigation style or a custom one with links to
-  // important pages. To use `navigationLinks`, set `navigationStyle` to `custom`.
-  navigationStyle: 'default'
-  // navigationStyle: 'custom',
-  // navigationLinks: [
-  //   {
-  //     title: 'About',
-  //     pageId: 'f1199d37579b41cbabfc0b5174f4256a'
-  //   },
-  //   {
-  //     title: 'Contact',
-  //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
-  //   }
-  // ]
+  // コレクション画像の表示 (nullでOK)
+  pageUrlOverrides: null,
 })
