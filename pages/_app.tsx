@@ -17,6 +17,7 @@ import type { AppProps } from 'next/app'
 import * as Fathom from 'fathom-client'
 import { useRouter } from 'next/router'
 import { posthog } from 'posthog-js'
+import Script from 'next/script' // 追加: GA4用
 import * as React from 'react'
 
 import { bootstrap } from '@/lib/bootstrap-client'
@@ -28,6 +29,9 @@ import {
   posthogId
 } from '@/lib/config'
 
+// ▼ GA4 IDを設定
+const GA_MEASUREMENT_ID = 'G-ZEGF57R3HK'
+
 if (!isServer) {
   bootstrap()
 }
@@ -36,7 +40,14 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   React.useEffect(() => {
-    function onRouteChangeComplete() {
+    function onRouteChangeComplete(url: string) {
+      // ▼ GA4 ページビュー送信処理
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('config', GA_MEASUREMENT_ID, {
+          page_path: url,
+        })
+      }
+
       if (fathomId) {
         Fathom.trackPageview()
       }
@@ -61,5 +72,29 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      {/* ▼ GA4 スクリプトの埋め込み */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
+
+      <Component {...pageProps} />
+    </>
+  )
 }
