@@ -61,22 +61,21 @@ body {
     background-color: var(--bg-color);
 }
 
-/* Notionのカバー画像を固定高さ(400px)で表示する。元画像1500x500(3:1)が
-   最大幅1200pxでトリミングなく全体表示される値。
+/* Notionのカバー画像を固定高さ(300px)で表示する。
    object-positionはreact-notion-xがNotionのリポジション値からインライン出力するため、
    ここでは上書きしない。 */
 .notion-page-cover {
   object-fit: cover !important;
   width: 100% !important;
-  height: 400px !important;
+  height: 300px !important;
 }
 
 /* react-notion-xがnext/imageを使用している場合のラッパーおよび内部インライン画像の強制補正 */
 .notion-page-cover-wrapper,
 .notion-page-cover-wrapper span,
 .notion-page-cover-wrapper img {
-  max-height: 400px !important;
-  height: 400px !important;
+  max-height: 300px !important;
+  height: 300px !important;
   object-fit: cover !important;
   overflow: hidden !important;
 }
